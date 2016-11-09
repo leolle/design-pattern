@@ -1,0 +1,8 @@
+build/
+log/
+*.con
+*.png
+*.log
+*.pb.cc
+*.pb.h
+*.dirstamp
