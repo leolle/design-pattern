@@ -2,13 +2,14 @@
 #include <string.h>
 #include <iostream>
 #include "WeatherData.hpp"
+#include "Observer.hpp"
 #include <sstream>
 
 using namespace std;
 WeatherData::WeatherData()
-    : temperature(12.0), pressure(123.0), humidity(22.0)		//initiate m_id with a random number
+    : temperature(12.0), pressure(123.0), humidity(22.0)
 {
-//	cout << "default shape constructor " << endl;
+	cout << "default WeatherData constructor " << endl;
 }
 
 //copy constructor
@@ -27,7 +28,7 @@ void WeatherData::removeObserver(Observer *ob)
   }
 }
 
-void WeatherData::notifyObserver(Observer *ob)
+void WeatherData::notifyObserver()
 {
   for (std::vector<Observer *>::iterator it = observers.begin(); it != observers.end(); it++)
   {
@@ -41,11 +42,33 @@ void WeatherData::registerObserver(Observer *ob)
   observers.push_back(ob);
 }
 
-int WeatherData::getHumidity()
+double WeatherData::getHumidity()
 {
   return humidity;
 }
 
+double WeatherData::getPressure()
+{
+  return pressure;
+}
+
+double WeatherData::getTemperature()
+{
+  return temperature;
+}
+
+void WeatherData::measurementChanged()
+{
+  notifyObserver();
+}
+
+void WeatherData::setMeasurement(double t, double h, double p)
+{
+  temperature = t;
+  pressure = p;
+  humidity = h;
+  measurementChanged();
+}
 // Assignment operator.
 WeatherData& WeatherData::operator = (const WeatherData& source)
 {

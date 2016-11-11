@@ -10,13 +10,13 @@
 #include "Observer.hpp"
 using namespace std;
 
-class WeatherData
+class WeatherData: public Subject
 {
 private:
   std::vector<Observer *> observers;
-  int temperature;
-  int humidity;
-  int pressure;
+  double temperature;
+  double humidity;
+  double pressure;
 protected:
 
 	//int m_id;	// protected member may be access from derived class.
@@ -39,22 +39,14 @@ public:
 
   void registerObserver(Observer *ob);
   void removeObserver(Observer *ob);
-  void notifyObserver(Observer *ob);
+  void notifyObserver();
 
   double getTemperature();
   double getHumidity();
   double getPressure();
-  void measurementsChanged();
-	//virtual std::string ToString() const;	//convert id information to a string
-  // void performDraw(){
-  //   subject->draw();
-  // }
-	//get ID
-	//int ID();
-	//virtual void Draw() = 0;
-	//void Print();
+  void measurementChanged();
+  void setMeasurement(double t, double h, double p);
 
-	//operator overloading
 	WeatherData& operator = (const WeatherData& source); // Assignment operator.
 
 };

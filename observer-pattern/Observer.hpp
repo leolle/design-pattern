@@ -3,15 +3,13 @@
 
 
 #include <iostream>
-#include "Subject.hpp"
 
-class Observer: public Subject
+
+class Observer
 {
 public:
-  void update(float temperature, float humidity, float pressure)
-  {
-    std::cout << "new data updated." << std::endl;
-  }
+  virtual void update() = 0;
+
 };
 
 #endif
