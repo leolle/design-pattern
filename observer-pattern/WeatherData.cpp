@@ -7,7 +7,7 @@
 
 using namespace std;
 WeatherData::WeatherData()
-    : temperature(12.0), pressure(123.0), humidity(22.0)
+    : temperature(12234.34), pressure(123.234), humidity(22.65346)
 {
 	cout << "default WeatherData constructor " << endl;
 }

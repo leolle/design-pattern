@@ -1,5 +1,5 @@
-#ifndef CURRENTCONDITIONSDISPLAY_HPP
-#define CURRENTCONDITIONSDISPLAY_HPP
+#ifndef TEMPERATUREONLYDISPLAY_HPP
+#define TEMPERATUREONLYDISPLAY_HPP
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
@@ -10,15 +10,13 @@
 
 using namespace std;
 
-class CurrentConditionsDisplay : public Observer, public DisplayElement	//derived from shape, access specifier public
+class TemperatureOnlyDisplay : public Observer, public DisplayElement	//derived from shape, access specifier public
 {
 private:
 	WeatherData *weatherData;
 	double temperature;
-	double humidity;
-	double pressure;
 public:
-	CurrentConditionsDisplay(WeatherData *wd);
+	TemperatureOnlyDisplay(WeatherData *wd);
 
 	void update();
 	void display();
@@ -26,4 +24,4 @@ public:
 
 };
 
-#endif // Point_H
+#endif

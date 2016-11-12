@@ -23,7 +23,7 @@ void CurrentConditionsDisplay::update()
 void CurrentConditionsDisplay::display()
 {
   cout << "CurrentConditionsDisplay displaying:" << endl;
-  cout << "Temperuture: " << temperature << endl;
+  cout << "Temperuture: " << std::fixed << cout.precision(10) << temperature << endl;
   cout << "Humidity: " << humidity << endl;
   cout << "Pressure: " << pressure << endl;
   cout << endl;

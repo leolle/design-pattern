@@ -4,7 +4,7 @@
 #include <sstream>
 #include "WeatherData.hpp"
 #include "CurrentConditionsDisplay.hpp"
-
+#include "TemperatureOnlyDisplay.hpp"
 
 //#include "lineSegment.hpp"
 //#include "circle.hpp"
@@ -18,7 +18,12 @@ int main()
 {
 WeatherData wd;
 CurrentConditionsDisplay ccd = CurrentConditionsDisplay(&wd);
+TemperatureOnlyDisplay tod = TemperatureOnlyDisplay(&wd);
+wd.setMeasurement(std::rand(), std::rand(), std::rand());
 
-wd.setMeasurement(2323, 2323, 123);
 wd.removeObserver(&ccd);
+wd.setMeasurement(std::rand(), std::rand(), std::rand());
+//ccd.display();
+
+return 0;
 }
